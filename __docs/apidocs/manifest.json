@@ -1,0 +1,19 @@
+{
+    "name": "Epyo api guide",
+    "short_name": "E-API",
+    "icons": [{
+            "src": "/apidocs/icons/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/apidocs/icons/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "/apidocs/index.html",
+    "display": "standalone",
+    "background_color": "#fff",
+    "theme_color": "#4527a0"
+}

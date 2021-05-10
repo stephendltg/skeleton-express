@@ -1,0 +1,96 @@
+#!/usr/bin/env node
+
+"use strict";
+
+/**
+ * Name: epyo-visiom
+ * Description: Server epyo-visiom
+ * Main Module: www
+ * Author: Epyo - stephen D.
+ * Version: 1.0.0
+ */
+
+
+/** --------------------------------------------------------------------------------------------- */
+/** DEFINES ===================================================================================== */
+/** --------------------------------------------------------------------------------------------- */
+
+// Globals
+require('../config/global')
+
+const app = require('../app')
+const debug = require('debug')(NAME + ':server')
+const http = require('http')
+const https = require('https')
+const fs = require('fs')
+const path = require('path')
+
+
+/** --------------------------------------------------------------------------------------------- */
+/** MAIN    ===================================================================================== */
+/** --------------------------------------------------------------------------------------------- */
+
+/**
+ * Get port from environment and store in Express.
+ */
+
+app.set('port', PORT)
+
+
+/**
+ * Create HTTP server.
+ */
+
+var server = null
+
+if ( fs.existsSync( ABSPATH + './cert/server.key') &&  fs.existsSync( ABSPATH + './cert/server.crt' ) ) {
+  server = https.createServer({
+    key: fs.readFileSync(ABSPATH + 'cert/server.key'),
+    cert: fs.readFileSync(ABSPATH + 'cert/server.crt'),
+  }, app)
+} else {
+  server = http.createServer(app)
+}
+
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+
+server.listen(PORT)
+server.on('error', onError)
+server.on('listening', onListening)
+
+/**
+ * Event listener for HTTP server "error" event.
+ */
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  let bind = typeof PORT === 'string' ? 'Pipe ' + PORT : 'Port ' + PORT;
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges')
+      process.exit(1)
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use')
+      process.exit(1)
+      break;
+    default:
+      throw error;
+  }
+}
+
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+
+function onListening() {
+  let addr = server.address()
+  let bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port
+  debug('Listening on ' + bind)
+}

@@ -1,0 +1,204 @@
+{
+	"info": {
+		"_postman_id": "4b7a00a8-6bb1-4831-8334-a880f55eafae",
+		"name": "EPYO-VISIOM TABLE OPTIONS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get list options",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/json/v1/options",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"json",
+						"v1",
+						"options"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get settings",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/json/v1/options/settings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"json",
+						"v1",
+						"options",
+						"settings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update settings",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    [\"lang\", \"fr\"]\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/json/v1/options/settings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"json",
+						"v1",
+						"options",
+						"settings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create option",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"test\",\n    \"value\": \"en\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/json/v1/options",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"json",
+						"v1",
+						"options"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update option",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"value\": \"fr\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/json/v1/options/lang",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"json",
+						"v1",
+						"options",
+						"lang"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete option field",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"value\": \"fr\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/json/v1/options/lang",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"json",
+						"v1",
+						"options",
+						"lang"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get option field",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/json/v1/options/lang",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"json",
+						"v1",
+						"options",
+						"lang"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

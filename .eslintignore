@@ -1,0 +1,10 @@
+__admin/*
+__frontend/*
+__docs/*
+admin/*
+frontend/*
+logs/*
+cert/*
+scripts/*
+public/*
+test/*

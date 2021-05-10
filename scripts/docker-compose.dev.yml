@@ -1,0 +1,45 @@
+version: '2.4'
+services:
+  
+    # ---------------------------------
+    # Tools dev or integration
+    # ---------------------------------
+    epyo-mysql-admin:
+      container_name: epyo-mysql-admin
+      hostname: epyo-mysql-admin
+      image: phpmyadmin/phpmyadmin:5.1.0
+      environment:
+        PMA_HOST: epyo-visiom-db
+        PMA_PORT: 3306
+        MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-epyois100%MAGIC}
+        PMA_USER: ${DB_USER:-epyo}
+        PMA_PASSWORD: ${DB_PASSWORD:-epyoepyo666}
+      ports:
+        - '127.0.0.1:3380:80'
+      restart: always
+
+    # ---------------------------------
+    # EPYO DB
+    # ---------------------------------
+    epyo-db:
+      container_name: epyo-db
+      image: mariadb:10.5.9
+      hostname: epyo-db
+      command: [
+        '--character-set-server=utf8mb4',
+        '--collation-server=utf8mb4_unicode_ci'
+      ]
+      restart: always
+      environment:
+        MYSQL_DATABASE: ${DB_NAME:-epyo}
+        MYSQL_USER: ${DB_USER:-epyo}
+        MYSQL_PASSWORD: ${DB_PASSWORD:-epyoepyo666}
+        MYSQL_ROOT_PASSWORD:  ${DB_ROOT_PASSWORD:-epyois100%MAGIC}
+      volumes:
+        - vol-db-data:/var/lib/mysql
+      ports:
+        - '127.0.0.1:3306:3306'
+  
+volumes:
+  vol-db-data:
+    driver: local

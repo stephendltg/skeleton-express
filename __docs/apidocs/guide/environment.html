@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ENVIRONMENT | EPYO</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="API DOCUMENTATION v1.0.0">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/apidocs/assets/css/0.styles.6e6c2935.css" as="style"><link rel="preload" href="/apidocs/assets/js/app.445ed78a.js" as="script"><link rel="preload" href="/apidocs/assets/js/3.c3da637e.js" as="script"><link rel="preload" href="/apidocs/assets/js/13.b8e2d12a.js" as="script"><link rel="prefetch" href="/apidocs/assets/js/1.2588122f.js"><link rel="prefetch" href="/apidocs/assets/js/10.e6e3c565.js"><link rel="prefetch" href="/apidocs/assets/js/11.a4bbca7d.js"><link rel="prefetch" href="/apidocs/assets/js/12.f4b874b1.js"><link rel="prefetch" href="/apidocs/assets/js/14.7cdee058.js"><link rel="prefetch" href="/apidocs/assets/js/15.cf149a0d.js"><link rel="prefetch" href="/apidocs/assets/js/16.e57da079.js"><link rel="prefetch" href="/apidocs/assets/js/17.34bdd22a.js"><link rel="prefetch" href="/apidocs/assets/js/4.dff45d5a.js"><link rel="prefetch" href="/apidocs/assets/js/5.7675ae8e.js"><link rel="prefetch" href="/apidocs/assets/js/6.6d7fdbb2.js"><link rel="prefetch" href="/apidocs/assets/js/7.99b366eb.js"><link rel="prefetch" href="/apidocs/assets/js/8.cb181568.js"><link rel="prefetch" href="/apidocs/assets/js/9.de90cdd0.js">
+    <link rel="stylesheet" href="/apidocs/assets/css/0.styles.6e6c2935.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme__container"><div class="row"><div class="col-md-3 col-lg-2 sidebar__container"><div class="menu menu__container"><div class="menu__box"><a class="menu__btn"><div class="hamburger"><span class="line"></span> <span class="line"></span> <span class="line"></span></div></a></div></div> <div class="sidebar" style="width:100%;display:none;"><div class="group"><div class="group__title">Search</div> <div class="group__body"><div class="search search__container"><div class="search__heading"><input type="text" value="" class="search__ipt"></div> <div class="search__body"><ul class="search__list" style="display:none;"><li class="search__item"><a href="/apidocs/guide" class="router-link-active">Introduction</a></li><li class="search__item"><a href="/apidocs/guide/auth">Auth</a></li><li class="search__item"><a href="/apidocs/guide/users">Users</a></li><li class="search__item"><a href="/apidocs/guide/options">Options</a></li><li class="search__item"><a href="/apidocs/guide/attachments">Attachments</a></li></ul></div></div></div></div> <!----> <div class="group"><div class="group__title">
+      home
+    </div> <div class="group__body"><div class="group__category category"><div class="category__label"><a href="/apidocs/guide" class="category__link sidebar-link router-link-active">Introduction</a></div></div> <!----> <div><div class="group__category category"><div class="category__label"><a href="/apidocs/guide/auth" class="category__link sidebar-link">Auth</a></div> <!----></div><div class="group__category category"><div class="category__label"><a href="/apidocs/guide/users" class="category__link sidebar-link">Users</a></div> <!----></div><div class="group__category category"><div class="category__label"><a href="/apidocs/guide/options" class="category__link sidebar-link">Options</a></div> <!----></div><div class="group__category category"><div class="category__label"><a href="/apidocs/guide/attachments" class="category__link sidebar-link">Attachments</a></div> <!----></div><div class="group__category category"><div class="category__label"><a href="/apidocs/guide/sessions" class="category__link sidebar-link">Sessions</a></div> <!----></div><div class="group__category category"><div class="category__label"><a href="/apidocs/guide/environment" class="category__link sidebar-link">Environment</a></div> <!----></div></div></div></div></div></div> <div class="col-md-9 col-lg-10 content__container"><div class="page__container"><div custom="" class="content__default"><h1 id="environment"><a href="#environment" class="header-anchor">#</a> ENVIRONMENT</h1> <h2 id="pre-requis"><a href="#pre-requis" class="header-anchor">#</a> PRE-REQUIS:</h2> <h3 id="dev"><a href="#dev" class="header-anchor">#</a> DEV:</h3> <ul><li>install sqlitebrowser: https://sqlitebrowser.org/dl/</li></ul> <div class="language-bash [Ubuntu and Derivatives, Debian] extra-class"><pre class="language-bash"><code><span class="token function">sudo</span> <span class="token function">apt-get</span> update
+<span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> sqlitebrowser
+</code></pre></div><h2 id="knex"><a href="#knex" class="header-anchor">#</a> KNEX:</h2> <p><strong>refs</strong>:</p> <ul><li>https://devhints.io/knex</li> <li>https://knexjs.org/</li></ul> <h3 id="for-use-cli"><a href="#for-use-cli" class="header-anchor">#</a> For use cli</h3> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">npm</span> i knex -g
+</code></pre></div><p><strong>Create migration:</strong></p> <div class="language- extra-class"><pre class="language-text"><code>knex migrate:make migration_name
+knex migrate:make migration_name --env production
+</code></pre></div><p><strong>Run migration:</strong></p> <div class="language- extra-class"><pre class="language-text"><code>knex migrate:latest
+knex migrate:latest --env staging
+knex migrate:latest --env production
+</code></pre></div><p><strong>Rollback:</strong></p> <div class="language- extra-class"><pre class="language-text"><code>knex migrate:rollback
+knex migrate:rollback --env staging
+knex migrate:rollback --env production
+</code></pre></div><p><strong>Create seed:</strong></p> <div class="language- extra-class"><pre class="language-text"><code>knex seed:make seed_name
+knex seed:make seed_name --env staging
+knex seed:make seed_name --env production
+</code></pre></div><p><strong>Run seed:</strong></p> <div class="language- extra-class"><pre class="language-text"><code>knex seed:run
+knex seed:run --env staging
+knex seed:run --env production
+</code></pre></div></div> <!----></div></div></div> <!----></div><div class="global-ui"></div></div>
+    <script src="/apidocs/assets/js/app.445ed78a.js" defer></script><script src="/apidocs/assets/js/3.c3da637e.js" defer></script><script src="/apidocs/assets/js/13.b8e2d12a.js" defer></script>
+  </body>
+</html>

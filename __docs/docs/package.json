@@ -1,0 +1,22 @@
+{
+  "name": "e-visiom",
+  "version": "1.0.0",
+  "description": "API DOCUMENTATION v1.0.0",
+  "main": "index.js",
+  "authors": {
+    "name": "stephendltg",
+    "email": "stephen@epyo.eu"
+  },
+  "repository": "https://stephen-epyo@bitbucket.org/epyodev/epyo-visiom.git/e-visiom",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  },
+  "dependencies": {
+    "vuepress-theme-api": "^1.0.0-beta.9"
+  }
+}
