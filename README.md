@@ -19,7 +19,7 @@ apk add git
 ```
 
 ```bash
-#Get repository epyo-visiom
+#Get repository
 git clone --branch x.x.x https://....
 
 #Update repository
