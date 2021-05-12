@@ -28,6 +28,22 @@ const statusMonitor = require('express-status-monitor')
 const crypto  = require('crypto')
 const hmac    = crypto.createHmac('sha256', __filename).digest('hex').substr(0, 10)
 
+// Sentry ref: https://docs.sentry.io/platforms/node/guides/express/
+const Sentry  = require("@sentry/node");
+const Tracing = require("@sentry/tracing");
+
+// Sentry settings
+Sentry.init({
+  dsn: "https://31c74d7a437e4d01933380342748a794@o652606.ingest.sentry.io/5761478",
+  integrations: [
+    new Sentry.Integrations.Http({ tracing: true }),
+    new Tracing.Integrations.Express({ 
+      app
+    })
+  ],
+  tracesSampleRate: 1.0,
+});
+
 
 /**
  * Logger for dev
@@ -65,6 +81,12 @@ const attachmentsRouter = require('./routes/attachments')
 /** MAIN    ===================================================================================== */
 /** --------------------------------------------------------------------------------------------- */
 var app = express()
+
+// RequestHandler creates a separate execution context using domains, so that every
+// transaction/span/breadcrumb is attached to its own Hub instance
+app.use(Sentry.Handlers.requestHandler());
+// TracingHandler creates a trace for every incoming request
+app.use(Sentry.Handlers.tracingHandler());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
@@ -206,8 +228,6 @@ app.use('/api/json/v1/users', usersRouter)
 app.use('/api/json/v1/options', optionsRouter)
 app.use('/api/json/v1/attachments', attachmentsRouter)
 
-
-
 /**
  * Catch 404 and forward to error handler
  */ 
@@ -225,5 +245,8 @@ app.use(function(err, req, res) {
   res.status(err.status || 500)
   res.render('error')
 });
+
+// Sentry: The error handler must be before any other error middleware and after all controllers
+app.use(Sentry.Handlers.errorHandler());
 
 module.exports = app

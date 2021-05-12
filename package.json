@@ -54,6 +54,8 @@
   "license": "ISC",
   "homepage": "https://bitbucket.org/epyodev/epyo-visiom#readme",
   "dependencies": {
+    "@sentry/node": "^6.3.6",
+    "@sentry/tracing": "^6.3.6",
     "@stephendltg/e-bus": "^1.0.2",
     "bcrypt": "^5.0.1",
     "bunyan": "^1.8.15",
