@@ -1,10 +1,10 @@
 "use strict";
 
 /**
- * Name: epyo-visiom
+ * Name: app
  * Description: Server epyo-visiom
  * Sub Module: global
- * Author: Epyo - stephen D.
+ * Author: stephen D.
  * Version: 1.0.0
  */
 
@@ -15,7 +15,7 @@
 
 global.ABSPATH  = process.cwd().replace(/\/*$/, "") + '/';
 global.PORT     = normalizePort(process.env.PORT || '3000')
-global.NAME     = (process.env.NAME || 'epyo').toLowerCase().replace(/[^a-z0-9_-]/gi, '')
+global.NAME     = (process.env.NAME || 'app').toLowerCase().replace(/[^a-z0-9_-]/gi, '')
 
 
 /** --------------------------------------------------------------------------------------------- */

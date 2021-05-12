@@ -1,7 +1,10 @@
 #!make
-PROJECT=epyo
+PROJECT=app
 VERSION=v14.16.1
 NVM=v0.38.0
+
+all: 
+	docker-compose up -d
 
 install: 
 	@echo "Installing project ${PROJECT}..."

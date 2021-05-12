@@ -1,4 +1,4 @@
-# SKELETON APP EXPRESS #
+# MODELS APP #
 
 ## DOCKER
 
@@ -19,8 +19,8 @@ apk add git
 ```
 
 ```bash
-#Get repository
-git clone --branch x.x.x https://....
+#Get repository epyo-visiom
+git clone --branch x.x.x https://bitbucket.org/epyodev/epyo-visiom
 
 #Update repository
 git pull

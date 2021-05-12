@@ -12,6 +12,7 @@ let request  = require('supertest');
 const assert = require('assert').strict;
 
 
+
 /*
  * Configuration
  */
@@ -41,7 +42,8 @@ describe('Auth: ', function() {
             .then(response => {
                 done();
                 if( VERBOSE ) console.table([response.status, response.type])
-                cookie = response.headers['set-cookie'].filter(_ => _.match(/epyo/g) )[0].split(';')[0]
+                cookie = response.headers['set-cookie'].filter(_ => _.match(/app/g) )[0].split(';')[0]
+                console.log(cookie)
                 token = response.body[0].token
             })
             .catch(err => done(err))

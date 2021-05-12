@@ -1,10 +1,10 @@
 "use strict";
 
 /**
- * Name: epyo-visiom
+ * Name: app
  * Description: middleware configuration
  * Sub Module: app.js
- * Author: Epyo - stephen D.
+ * Author: stephen D.
  * Version: 1.0.0
  */
 
@@ -80,7 +80,7 @@ app.use(compression())
  */
 app.use(session({
   secret: hmac,
-  name: NAME + '_' + hmac,
+  name: 'app_' + NAME + '_' + hmac,
   resave: true,
   saveUninitialized : true,
   cookie: {

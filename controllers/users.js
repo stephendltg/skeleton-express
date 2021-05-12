@@ -1,10 +1,10 @@
 "use strict";
 
 /**
- * Name: epyo-visiom
+ * Name: app
  * Description: 
  * Sub Module: controlles users
- * Author: Epyo - stephen D.
+ * Author: stephen D.
  * Version: 1.0.0
  */
 

@@ -4,42 +4,42 @@ services:
     # ---------------------------------
     # Tools dev or integration
     # ---------------------------------
-    epyo-mysql-admin:
-      container_name: epyo-mysql-admin
-      hostname: epyo-mysql-admin
+    mysql-admin:
+      container_name: mysql-admin
+      hostname: mysql-admin
       image: phpmyadmin/phpmyadmin:5.1.0
       environment:
-        PMA_HOST: epyo-visiom-db
+        PMA_HOST: maria-db
         PMA_PORT: 3306
-        MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-epyois100%MAGIC}
-        PMA_USER: ${DB_USER:-epyo}
-        PMA_PASSWORD: ${DB_PASSWORD:-epyoepyo666}
+        MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+        PMA_USER: ${DB_USER}
+        PMA_PASSWORD: ${DB_PASS}
       ports:
         - '127.0.0.1:3380:80'
       restart: always
 
     # ---------------------------------
-    # EPYO DB
+    # DB
     # ---------------------------------
-    epyo-db:
-      container_name: epyo-db
+    maria-db:
+      container_name: maria-db
       image: mariadb:10.5.9
-      hostname: epyo-db
+      hostname: maria-db
       command: [
         '--character-set-server=utf8mb4',
         '--collation-server=utf8mb4_unicode_ci'
       ]
       restart: always
       environment:
-        MYSQL_DATABASE: ${DB_NAME:-epyo}
-        MYSQL_USER: ${DB_USER:-epyo}
-        MYSQL_PASSWORD: ${DB_PASSWORD:-epyoepyo666}
-        MYSQL_ROOT_PASSWORD:  ${DB_ROOT_PASSWORD:-epyois100%MAGIC}
+        MYSQL_DATABASE: ${DB_TABLE}
+        MYSQL_USER: ${DB_USER}
+        MYSQL_PASSWORD: ${DB_PASS}
+        MYSQL_ROOT_PASSWORD:  ${DB_ROOT_PASSWORD}
       volumes:
-        - vol-db-data:/var/lib/mysql
+        - vol-db-data-dev:/var/lib/mysql
       ports:
         - '127.0.0.1:3306:3306'
   
 volumes:
-  vol-db-data:
+  vol-db-data-dev:
     driver: local

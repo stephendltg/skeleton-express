@@ -1,4 +1,11 @@
-// Update with your config settings.
+/**
+ * Name: app
+ * Description: database profils configuration
+ * Sub Module: knexfile.js
+ * Author: stephen D.
+ * Version: 1.0.0
+ */
+
 require('./config/global')
 const debug   = require('debug')( NAME + ':database')
 const bunyan  = require('bunyan')
@@ -46,11 +53,11 @@ module.exports = {
   staging: {
     client: 'mysql2',
     connection: {
-      host: '127.0.0.1',
+      host: process.env.DB_HOST || '127.0.0.1',
       port: 3306,
-      database: 'epyo',
-      user:     'epyo',
-      password: 'epyoepyo666'
+      database: process.env.DB_TABLE,
+      user:     process.env.DB_USER,
+      password: process.env.DB_PASS
     },
     pool: {
       min: 2,

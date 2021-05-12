@@ -1,9 +1,8 @@
 #!/bin/bash
 # =======
-# EPYO
 # version: 1
 # author: sdeletang
 # description: backup mariadb
 # =======
 
-docker exec epyo-db /usr/bin/mysqldump -u root --password=epyois100%MAGIC epyo > backup.sql
+docker exec maria-db /usr/bin/mysqldump -u root --password=stephendltgis100%MAGIC app_KkxSYT4V > backup.sql

@@ -42,7 +42,7 @@ describe('Tabe Users: ', function() {
             .then(response => {
                 done();
                 if( VERBOSE ) console.table([response.status, response.type])
-                cookie = response.headers['set-cookie'].filter(_ => _.match(/epyo/g) )[0].split(';')[0]
+                cookie = response.headers['set-cookie'].filter(_ => _.match(/app/g) )[0].split(';')[0]
                 token = response.body[0].token
             })
             .catch(err => done(err))

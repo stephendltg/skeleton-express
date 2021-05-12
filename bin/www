@@ -3,10 +3,10 @@
 "use strict";
 
 /**
- * Name: epyo-visiom
- * Description: Server epyo-visiom
+ * Name: app
+ * Description: Server api rest, files static
  * Main Module: www
- * Author: Epyo - stephen D.
+ * Author: stephen D.
  * Version: 1.0.0
  */
 

@@ -1,7 +1,7 @@
 {
-  "name": "epyo",
+  "name": "app",
   "version": "0.0.1-beta2",
-  "description": "apps epyo",
+  "description": "app: api-rest, static server",
   "main": "app.js",
   "private": true,
   "engines": {
@@ -14,7 +14,7 @@
     "win32"
   ],
   "contributors": [
-    "s.deletang@icloud.com"
+    "stephen@epyo.eu"
   ],
   "scripts": {
     "start": "node -r dotenv/config ./bin/www",
@@ -42,7 +42,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stephendltg/skeleton-express.git"
+    "url": "git+https://stephen-epyo@bitbucket.org/epyodev/epyo-visiom.git"
   },
   "keywords": [
     "milestone",
@@ -52,7 +52,7 @@
   ],
   "author": "stephendtlg",
   "license": "ISC",
-  "homepage": "https://github.com/stephendltg/skeleton-express#readme",
+  "homepage": "https://bitbucket.org/epyodev/epyo-visiom#readme",
   "dependencies": {
     "@stephendltg/e-bus": "^1.0.2",
     "bcrypt": "^5.0.1",
