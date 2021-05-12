@@ -52,19 +52,17 @@ router.get('/', function(req, res) {
     .then( (result)=> {
         if( bcrypt.compareSync(password, result[0].user_pass) ){
 
-            result[0].user_meta = JSON.parse(result[0].user_meta)
-            result[0].user_registered = dateformat(result[0].user_registered, "isoDateTime")
-
-            result[0].token   = bcrypt.hashSync(login, 10)
-            req.session.token = bcrypt.hashSync(result[0].token, 10)
+            result[0].user_meta         = JSON.parse(result[0].user_meta)
+            result[0].user_registered   = dateformat(result[0].user_registered, "isoDateTime")
+            result[0].token             = bcrypt.hashSync(login, 10)
+            req.session.token           = bcrypt.hashSync(result[0].token, 10)
             req.session.user_activation_key = result[0].user_activation_key
-            req.session.uuid  = result[0].id
-
-            result[0].role = redux.get('auth:profiles:' +  result[0].user_activation_key, {role: 'visitor'} ).role
+            req.session.uuid            = result[0].id
+            result[0].role              = redux.get('auth:profiles:' +  result[0].user_activation_key, {role: 'visitor'} ).role
 
             delete result[0].user_pass
             delete result[0].user_activation_key
-
+            
             // Get lang
             options.field({name: "lang"})
                 .then( field => {

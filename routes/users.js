@@ -70,7 +70,7 @@ router.get('/:id', function(req, res) {
 
   users.all({id: req.params.id})
     .then( (result)=> {
-      result[0].user_meta = JSON.parse(result[0].user_meta)
+      result[0].user_meta       = JSON.parse(result[0].user_meta)
       result[0].user_registered = dateformat(result[0].user_registered, "isoDateTime")
       res.json(result)
     })
