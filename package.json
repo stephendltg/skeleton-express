@@ -1,6 +1,6 @@
 {
   "name": "app",
-  "version": "0.0.1-beta2",
+  "version": "0.0.1-beta4",
   "description": "app: api-rest, static server",
   "main": "app.js",
   "private": true,

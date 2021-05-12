@@ -15,8 +15,10 @@
 const express = require('express')
 const router  = express.Router()
 const users   = require('../controllers/users')
+const options = require('../controllers/options')
 const bcrypt  = require('bcrypt')
 const redux = require('../config/redux')
+const dateformat = require('dateformat')
 
 
 /** --------------------------------------------------------------------------------------------- */
@@ -50,6 +52,9 @@ router.get('/', function(req, res) {
     .then( (result)=> {
         if( bcrypt.compareSync(password, result[0].user_pass) ){
 
+            result[0].user_meta = JSON.parse(result[0].user_meta)
+            result[0].user_registered = dateformat(result[0].user_registered, "isoDateTime")
+
             result[0].token   = bcrypt.hashSync(login, 10)
             req.session.token = bcrypt.hashSync(result[0].token, 10)
             req.session.user_activation_key = result[0].user_activation_key
@@ -59,7 +64,15 @@ router.get('/', function(req, res) {
 
             delete result[0].user_pass
             delete result[0].user_activation_key
-            res.json(result)
+
+            // Get lang
+            options.field({name: "lang"})
+                .then( field => {
+                    result[0].lang = field[0] && typeof field[0] === 'string' ? JSON.parse(field[0]) : 'en'
+                    res.json(result)
+                })
+                .catch( e => errorhandle(e, res))
+
         } else {
             res.status(401)
             res.json()

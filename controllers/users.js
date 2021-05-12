@@ -35,7 +35,7 @@ function SqlQuery (params, secure = true) {
     } 
   
     let query =  knex('users')
-        .select('id','user_login', secure ? 'id' : 'user_pass', secure ? 'id' : 'user_activation_key', 'display_name', 'user_email', 'user_registered')
+        .select('id','user_login', secure ? 'id' : 'user_pass', secure ? 'id' : 'user_activation_key', 'display_name', 'user_email', 'user_registered', 'user_meta')
         .where( params.row || 'user_login', 'like', '%' + (params.search || '') + '%')
         .whereBetween('user_registered', [from, to])
         .orderBy( params.orderby ? params.orderby : 'user_registered', params.order || 'desc')

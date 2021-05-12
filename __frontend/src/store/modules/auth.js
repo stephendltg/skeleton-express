@@ -41,6 +41,9 @@ const actions = {
 
   },
   disconnect (context, val){
+    // Logout api
+    fetch('/api/json/v1/auth/logout')
+    
     context.commit('account', false)
   },
   terminal ( context, val){

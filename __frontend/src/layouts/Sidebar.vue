@@ -2,12 +2,12 @@
   <div class="layout-sidebar">
     <aside class="view-aside p-m-1 p-text-center">
         <h3 class="p-d-flex p-jc-center">
-            <Avatar v-show="account.status['icon-32x32']" :image="account.status['icon-32x32']" class="p-mr-2" shape="circle" />
-            <span class="p-pt-1">{{account.status.name}}</span>
+            <!-- <Avatar v-show="account.status['icon-32x32']" :image="account.status['icon-32x32']" class="p-mr-2" shape="circle" />
+            <span class="p-pt-1">{{account.status.name}}</span> -->
         </h3>
         <Divider/>
         <div class="card">
-			    <Avatar :label="account.user_nicename.charAt(0).toUpperCase()" class="p-mr-2" size="xlarge" shape="circle" style="background-color: var(--header-color,#fff); color: var(--aside-text-color,#fff)"/>
+			    <Avatar :label="account.display_name.charAt(0).toUpperCase()" class="p-mr-2" size="xlarge" shape="circle" style="background-color: var(--header-color,#fff); color: var(--aside-text-color,#fff)"/>
           <Badge value="2" style="margin-left: -1.8em" severity="warning"></Badge>
           <div>
             <Button :label="account.user_nicename" class="p-button-link" style="color:var(--aside-text-color,#fff)"/>

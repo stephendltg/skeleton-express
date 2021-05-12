@@ -103,7 +103,7 @@ export default {
   data: () => ({
     toggle: false,
     apiUri: '',
-    isConnected: 0,
+    isConnected: 1,
     username: SETTINGS.APP_USERNAME, // not empty if app_autologin
     password: SETTINGS.APP_PASSWORD, // not empty if app_autologin
     error: false,
@@ -135,8 +135,9 @@ export default {
         case 'login': 
           this.progress = false
           api.getToken( this.username, this.password, (res)=> {
+            console.log(res)
             if( !res.error ) {
-              if( SETTINGS.APP_ROLES.includes(res.role)) this.$store.dispatch('auth/account', res) && ( SETTINGS.APP_STEPS ? this.$router.push('/steps') : this.$router.push('/') )
+              if( SETTINGS.APP_ROLES.includes(res[0].role)) this.$store.dispatch('auth/account', res[0]) && ( SETTINGS.APP_STEPS ? this.$router.push('/steps') : this.$router.push('/') )
               else this.messages.push({ content: this.__('Access not authorized') })
             } else {
               this.error = true

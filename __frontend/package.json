@@ -1,21 +1,16 @@
 {
   "name": "visiom",
   "version": "1.0.0",
-  "server": "192.168.1.138",
+  "server": "localhost:3000",
   "params": {
     "localstorage": false,
     "history": true,
     "roles": [
-      "operator",
-      "operator_1",
-      "operator_2",
-      "manager",
-      "supervisor",
-      "dsi"
+      "admin"
     ],
-    "auto_login": true,
-    "username": "invite",
-    "password": "invite",
+    "auto_login": false,
+    "username": "epyo",
+    "password": "epyo",
     "steps": false,
     "broker": true,
     "broker_topic": [

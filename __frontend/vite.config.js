@@ -1,7 +1,7 @@
 // vite.config.js
 
 const pkg       = require('./package.json');
-const IP_SERVER = pkg.server || 'localhost'
+const IP_SERVER = pkg.server || 'localhost:3000'
 
 module.exports = {
     base: '/',

@@ -1,7 +1,7 @@
 {
   "name": "admin",
   "version": "1.0.0",
-  "server": "192.168.1.138",
+  "server": "localhost:3000",
   "params": {
     "localstorage": false,
     "history": true,

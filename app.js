@@ -147,12 +147,12 @@ app.use(statusMonitor({
   healthChecks: [{
     protocol: 'http',
     host: 'localhost',
-    path: '/api/json/v1',
+    path: '/',
     port: PORT || '3000'
   }, {
     protocol: 'http',
     host: 'localhost',
-    path: '/api/json/v1/auth',
+    path: '/apidocs',
     port: PORT || '3000'
   }],
   ignoreStartsWith: '/admin'
@@ -180,6 +180,7 @@ if (process.env.NODE_ENV !== 'production')
  */
 app.use('/install', indexRouter)
 app.use('/api/json/v1/auth', authRouter)
+app.use('/api/json/v1/session', sessionRouter)
 
 /**
  * Route auth
@@ -200,7 +201,7 @@ app.use(function (req, res, next) {
 /**
  * Routes protected
  */
-app.use('/api/json/v1/session', sessionRouter)
+
 app.use('/api/json/v1/users', usersRouter)
 app.use('/api/json/v1/options', optionsRouter)
 app.use('/api/json/v1/attachments', attachmentsRouter)

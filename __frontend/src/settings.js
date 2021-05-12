@@ -1,7 +1,7 @@
 export default {
-    API_BASE_PATH: "/wp-json/wp/v2/",
+    API_BASE_PATH: "/api/json/v1/",
     LOCALSTORAGE: import.meta.env.MODE.PARAMS.localstorage || false,
-    DBNAME: "epyo_software_db_" + ( import.meta.env.MODE.NAME || '').replace(/[^\w-]/gi, ''),
+    DBNAME: "server_software_db_" + ( import.meta.env.MODE.NAME || '').replace(/[^\w-]/gi, ''),
     APP_NAME: import.meta.env.MODE.NAME || "epyo",
     APP_HISTORY: import.meta.env.MODE.PARAMS.history || false,
     APP_ROLES: import.meta.env.MODE.PARAMS.roles || ["operator", "operator_1", "operator_2", "manager", "supervisor", "dsi"],

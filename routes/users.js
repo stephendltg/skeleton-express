@@ -17,6 +17,7 @@ const router = express.Router()
 const users = require('../controllers/users');
 const sanitize = require('../utils/sanitize');
 const bcrypt = require('bcrypt');
+const dateformat = require('dateformat')
 
 
 /** --------------------------------------------------------------------------------------------- */
@@ -53,7 +54,11 @@ const responsehandle = ( result, res ) => {
 router.get('/', function(req, res) { 
 
   users.all(req.query)
-    .then( (result)=> res.json(result))
+    .then( (result)=> {
+      result.map( _ => _.user_meta = JSON.parse(_.user_meta))
+      result.map( _ => _.user_registered = dateformat(_.user_registered, "isoDateTime"))
+      res.json(result)
+    })
     .catch( e => errorhandle(e, res))
 
 })
@@ -66,6 +71,7 @@ router.get('/:id', function(req, res) {
   users.all({id: req.params.id})
     .then( (result)=> {
       result[0].user_meta = JSON.parse(result[0].user_meta)
+      result[0].user_registered = dateformat(result[0].user_registered, "isoDateTime")
       res.json(result)
     })
     .catch( e => errorhandle(e, res))

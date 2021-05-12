@@ -2,14 +2,14 @@
 
 # Introduction
 
-EPYO - API is composed of two parts: a middleware by nodejs and a database by mariaDB or SQlite (demo version)
+APP is composed of two parts: a middleware by nodejs and a database by mariaDB or SQlite (demo version)
 
 ::: tip CONNECTION
 Connection API - Administrator
 
 Default login: **epyo**
 
-Default password: **epyois100%MAGIC**
+Default password: **epyo**
 :::
 
 <CURL>

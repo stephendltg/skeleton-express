@@ -35,16 +35,16 @@ module.exports = {
     debug: true,
     log: {
       warn(msg) {
-        debug( 'WARN from SQL:', msg )
+        debug( 'WARN from SQL: %o', msg )
       },
       error(msg){
-        debug( 'ERROR from SQL:', msg )
+        debug( 'ERROR from SQL: %o', msg )
       },
       deprecate(msg){
-        debug( 'DEPRECATE from SQL:', msg )
+        debug( 'DEPRECATE from SQL: %o', msg )
       },
       debug(msg){
-        debug( 'DEBUG from SQL:', msg )
+        debug( 'DEBUG from SQL: %o', msg )
       }
     },
     useNullAsDefault: true
@@ -69,16 +69,16 @@ module.exports = {
     debug: true,
     log: {
       warn(msg) {
-        debug( 'WARN from SQL:', msg )
+        debug( 'WARN from SQL: %o', msg )
       },
       error(msg){
-        debug( 'ERROR from SQL:', msg )
+        debug( 'ERROR from SQL: %o', msg )
       },
       deprecate(msg){
-        debug( 'DEPRECATE from SQL:', msg )
+        debug( 'DEPRECATE from SQL: %o', msg )
       },
       debug(msg){
-        debug( 'DEBUG from SQL:', msg )
+        debug( 'DEBUG from SQL: %o', msg )
       }
     }
   },

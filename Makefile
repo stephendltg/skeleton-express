@@ -43,6 +43,7 @@ stop-staging:
 
 dev:
 	@echo "Dev project ${PROJECT}..."
+	npm run clean
 	npm run migrate
 	npm run migrate:seed
 	node_modules/.bin/nodemon -r dotenv/config ./bin/www dotenv_config_path=.env.dev

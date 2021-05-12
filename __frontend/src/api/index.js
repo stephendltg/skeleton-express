@@ -39,7 +39,7 @@ export function getToken ( username, password, callback ) {
 
   let token = btoa(username + ':' + password)
 
-  get( token, SETTINGS.API_BASE_PATH + 'token', callback )
+  get( token, SETTINGS.API_BASE_PATH + 'auth', callback )
 }
 
 /*
