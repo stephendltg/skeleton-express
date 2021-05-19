@@ -19,8 +19,8 @@ apk add git
 ```
 
 ```bash
-#Get repository epyo-visiom
-git clone --branch x.x.x https://bitbucket.org/epyodev/epyo-visiom
+#Get repository
+git clone --branch x.x.x https://github.com/stephendltg/skeleton-express
 
 #Update repository
 git pull
@@ -53,7 +53,7 @@ And then point your browser to `http://localhost:3000`.
 You can then scale the server to multiple instances:
 
 ```bash
-sudo docker-compose up -d --scale=epyo-visiom=3
+sudo docker-compose up -d --scale=server=3
 ```
 
 
