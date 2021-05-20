@@ -14,7 +14,7 @@
     "win32"
   ],
   "contributors": [
-    "stephen@epyo.eu"
+    "s.deletang@icloud.com"
   ],
   "scripts": {
     "start": "node -r dotenv/config ./bin/www",
@@ -42,7 +42,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://stephen-epyo@bitbucket.org/epyodev/epyo-visiom.git"
+    "url": "git+https://github.com/stephendltg/skeleton-express.git"
   },
   "keywords": [
     "milestone",
@@ -52,7 +52,7 @@
   ],
   "author": "stephendtlg",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/epyodev/epyo-visiom#readme",
+  "homepage": "https://github.com/stephendltg/skeleton-express#readme",
   "dependencies": {
     "@sentry/node": "^6.3.6",
     "@sentry/tracing": "^6.3.6",
