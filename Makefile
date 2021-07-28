@@ -11,6 +11,11 @@ install:
 	. ${NVM_DIR}/nvm.sh && nvm install ${VERSION} && nvm use ${VERSION}
 	npm install
 
+install-rasp:
+	@echo "Installing for raspberry"
+	sudo apt-get install libsqlite3-dev
+	npm install sqlite3 --build-from-source --sqlite=/usr
+
 clean:
 	@echo "Clean project ${PROJECT}..."
 	npm run clean
