@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /**
  * Name: app
@@ -51,6 +51,6 @@ const dictonnary = new Map([
         expiration: 0 
     }],
 ])
-const redux    = require('@stephendltg/e-bus')( (k,v) => debug(`${k}: ${v}`), dictonnary)
+const redux    = require('@stephendltg/e-bus/src')( (k,v) => debug(`${k}: ${v}`), dictonnary)
 
 module.exports = redux

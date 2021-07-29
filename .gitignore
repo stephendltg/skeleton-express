@@ -7,6 +7,7 @@
 node_modules/
 dist/
 logs/*.log
+.clinic/
 *.sqlite3
 
 # Compiled Java class files
