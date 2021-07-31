@@ -72,7 +72,7 @@
   "dependencies": {
     "@sentry/node": "^6.3.6",
     "@sentry/tracing": "^6.3.6",
-    "@stephendltg/e-bus": "^1.0.2",
+    "@stephendltg/e-bus": "^1.0.8",
     "bcrypt": "^5.0.1",
     "bunyan": "^1.8.15",
     "bunyan-middleware": "^1.0.1",
