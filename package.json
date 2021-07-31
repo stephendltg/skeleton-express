@@ -40,7 +40,10 @@
     "package:update": "npx npm-check-updates -u",
     "prepare": "husky install",
     "svn": "bash scripts/release.sh",
-    "release": "standard-version"
+    "release": "standard-version",
+    "prerelease": "standard-version -- --prerelease",
+    "fix": "standard-version -- --release-as minor"
+    
   },
   "validate-branch-name": {
     "pattern":"^(master|develop){1}$|^(feature|bugfix|hotfix|chore|experiment)\/([\w-]+?)(\/\d+)?$",
@@ -50,8 +53,7 @@
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "npm run lint",
-      "pre-push": "validate-branch-name",
-      "pre-push": "npm run test"
+      "pre-push": "validate-branch-name && npm run test"
     }
   },
   "repository": {
