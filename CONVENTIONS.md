@@ -22,31 +22,32 @@ __Le type__
 
 Le type du commit décrit l’origine du changement. Il peut prendre différentes valeurs :
 
-feat: Ajout d’une nouvelle fonctionnalité;
-fix: Correction d’un bug;
-build: Changement lié au système de build ou qui concerne les dépendances (npm, grunt, gulp, webpack, etc.).
-ci: Changement concernant le système d’intégration et de déploiement continu (Jenkins, Travis, Ansible, gitlabCI, etc.)
-docs: Ajout ou modification de documentation (README, JSdoc, etc.);
-perf: Amélioration des performances;
-refactor: Modification n’ajoutant pas de fonctionnalités ni de correction de bug (renommage d’une variable, suppression de code redondant, simplification du code, etc.);
-style: Changement lié au style du code (indentation, point virgule, etc.);
-test: Ajout ou modification de tests;
-revert: Annulation d’un précédent commit;
-chore: Toute autre modification (mise à jour de version par exemple).
+- feat: Ajout d’une nouvelle fonctionnalité;
+- fix: Correction d’un bug;
+- build: Changement lié au système de build ou qui concerne les dépendances (npm, grunt, gulp, webpack, etc.).
+- ci: Changement concernant le système d’intégration et de déploiement continu (Jenkins, Travis, Ansible, gitlabCI, etc.)
+- docs: Ajout ou modification de documentation (README, JSdoc, etc.);
+- perf: Amélioration des performances;
+- refactor: Modification n’ajoutant pas de fonctionnalités ni de correction de bug (renommage d’une variable, suppression de code redondant, - simplification du code, etc.);
+- style: Changement lié au style du code (indentation, point virgule, etc.);
+- test: Ajout ou modification de tests;
+- revert: Annulation d’un précédent commit;
+- chore: Toute autre modification (mise à jour de version par exemple).
 Pour chacun des types, vous pouvez également utiliser un système d’emoji comme gitmoji.
 
 __Le scope__
 
 Cet élément facultatif indique simplement le contexte du commit. Il s’agit des composants de notre projet, voici une liste non exhaustive :
 
-controller;
-route;
-middleware;
-view;
-config;
-service;
-etc.
-Le sujet
+- controller;
+- route;
+- middleware;
+- view;
+- config;
+- service;
+- etc.
+
+__Le sujet__
 
 Le sujet décrit succinctement la modification. Certaines règles doivent être respectées :
 
@@ -76,3 +77,12 @@ __Nota__
 
 Contourner les hooks
 Il est possible de contourner l’utilisation des hooks via l’option --no-verify de la plupart des commandes git, n’hésitez pas à aller lire la documentation de chacune des commandes pour en savoir plus.
+
+
+# HUSKY
+
+```
+npx husky add .husky/pre-commit "npm test"
+git add .husky/pre-commit
+git commit -m "chore(husky): add hook pre-commit"
+```
