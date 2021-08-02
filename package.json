@@ -52,7 +52,7 @@
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "npm run lint",
-      "pre-push": "validate-branch-name && npm run test"
+      "pre-push": "validate-branch-name"
     }
   },
   "repository": {
@@ -100,7 +100,6 @@
     "@commitlint/config-conventional": "^13.1.0",
     "chai": "^4.3.4",
     "eslint": "^7.25.0",
-    "husky": "^7.0.1",
     "mocha": "^8.3.2",
     "nodemon": "^2.0.7",
     "rimraf": "^3.0.2",
