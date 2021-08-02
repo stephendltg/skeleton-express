@@ -5,7 +5,7 @@
  * Description: middleware configuration
  * Sub Module: app.js
  * Author: stephen D.
- * Version: 1.0.0
+ * Version: 1.0.2
  */
 
 /** --------------------------------------------------------------------------------------------- */
@@ -43,7 +43,6 @@ Sentry.init({
   ],
   tracesSampleRate: 1.0,
 });
-
 
 /**
  * Logger for dev
