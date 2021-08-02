@@ -1,6 +1,6 @@
 {
   "name": "app",
-  "version": "0.0.1-beta4",
+  "version": "0.0.1",
   "description": "app: api-rest, static server",
   "main": "app.js",
   "private": true,
@@ -43,11 +43,10 @@
     "release": "standard-version",
     "prerelease": "standard-version -- --prerelease",
     "fix": "standard-version -- --release-as minor"
-    
   },
   "validate-branch-name": {
-    "pattern":"^(master|develop){1}$|^(feature|bugfix|hotfix|chore|experiment)\/([\w-]+?)(\/\d+)?$",
-    "errorMsg":"Branch name format : <type>/<name>/<issue_ID>"
+    "pattern": "^(master|develop){1}$|^(feature|fix|hotfix|release)/.+$",
+    "errorMsg": "Branch name format : <type>/<name>/<issue_ID>"
   },
   "husky": {
     "hooks": {
