@@ -9,6 +9,7 @@ dist/
 logs/*.log
 .clinic/
 *.sqlite3
+.eslintcache
 
 # Compiled Java class files
 *.class
