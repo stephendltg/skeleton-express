@@ -55,7 +55,7 @@ staging:
 	@echo "Staging project ${PROJECT}..."
 	npm run clean
 	docker-compose -f scripts/docker-compose.dev.yml up -d
-	sleep 2
+	sleep 5
 	node -r dotenv/config ./bin/www dotenv_config_path=.env.staging
 
 stop-staging:
