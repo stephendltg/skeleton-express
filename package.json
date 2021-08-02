@@ -42,7 +42,8 @@
     "svn": "bash scripts/release.sh",
     "release": "standard-version",
     "prerelease": "standard-version -- --prerelease",
-    "fix": "standard-version -- --release-as minor"
+    "fix": "standard-version -- --release-as minor",
+    "commit": "validate-branch-name"
   },
   "validate-branch-name": {
     "pattern": "^(master|develop){1}$|^(feature|fix|hotfix|release)/.+$",
