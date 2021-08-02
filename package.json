@@ -1,7 +1,7 @@
 {
   "name": "app",
   "version": "0.0.2",
-  "description": "app: api-rest, static server.",
+  "description": "app: api-rest, static server",
   "main": "app.js",
   "private": true,
   "engines": {
