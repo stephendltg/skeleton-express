@@ -5,7 +5,7 @@
  * Description: 
  * Sub Module: routes auth.js
  * Author: stephen D.
- * Version: 1.0.2
+ * Version: 1.0.0
  */
 
 /** --------------------------------------------------------------------------------------------- */

@@ -90,6 +90,14 @@ module.exports = {
           {
             title: 'Environment',
             to: 'environment'
+          },
+          {
+            title: 'Terms',
+            to: 'terms'
+          },
+          {
+            title: 'Posts',
+            to: 'posts'
           }
         ]
       }

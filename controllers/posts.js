@@ -30,26 +30,54 @@ function SqlQuery (params, type = 'post') {
     
     if( params.id ){
       return knex('posts')
-      .select('id','title', 'guid', 'post_status', 'post_mime_type', 'post_date', 'post_modified', 'author', 'meta', 'excerpt')
-      .where( 'id', params.id)
-      .andWhere( 'post_type', 'like', '%' + type + '%')
+      .select(
+        'posts.id',
+        'posts.title', 
+        'posts.guid', 
+        'posts.post_status', 
+        'posts.post_mime_type', 
+        'posts.post_date', 
+        'posts.post_modified', 
+        'posts.author', 
+        'posts.meta', 
+        'posts.excerpt',
+        knex.raw('COUNT(*) as count'),
+        knex.raw('GROUP_CONCAT( DISTINCT term_relationships.term_id ) as terms_id'),
+        knex.raw('GROUP_CONCAT( terms.name ) as terms')
+      )
+      .where( 'posts.id', params.id)
+      // .andWhere( 'post_type', 'like', '%' + type + '%')
+      .leftJoin('term_relationships', 'posts.id', 'term_relationships.object_id')
+      .leftJoin('terms', 'term_relationships.term_id', 'terms.id')
+      .groupBy('posts.id')
     } 
   
     let query =  knex('posts')
-        .select('id','title', 'guid', 'post_status', 'post_mime_type', 'post_date', 'post_modified', 'author', 'meta', 'excerpt')
+        .select(
+          'posts.id',
+          'posts.title', 
+          'posts.guid', 
+          'posts.post_status', 
+          'posts.post_mime_type', 
+          'posts.post_date', 
+          'posts.post_modified', 
+          'posts.author', 
+          'posts.meta', 
+          'posts.excerpt',
+          knex.raw('COUNT(*) as count'),
+          knex.raw('GROUP_CONCAT( DISTINCT term_relationships.term_id ) as terms_id'),
+          knex.raw('GROUP_CONCAT( terms.name ) as terms')
+        )
         .where( params.row || 'post_name', 'like', '%' + (params.search || '') + '%')
         .whereBetween('post_modified', [from, to])
         .orderBy( params.orderby ? params.orderby : 'post_modified', params.order || 'desc')
         .limit( params.limit || 100 )
         .offset( params.offset || 0 )
+        .leftJoin('term_relationships', 'posts.id', 'term_relationships.object_id')
+        .leftJoin('terms', 'term_relationships.term_id', 'terms.id')
+        .groupBy('posts.id')
     
-    // Type constraint
-    if ( !type.split(':')[1] ) query.andWhere( 'post_type', 'like', '%' + type + '%')
-    else query.andWhere( 'post_type', type )
     
-    // GroupBy
-    if ( params.groupby )
-      query.groupBy( params.groupby ? params.groupby.split(',') : 'post_date')
 
     // Add where search exact
     let where = {
@@ -61,6 +89,12 @@ function SqlQuery (params, type = 'post') {
     }
     for ( const k in where ) if(!where[k]) delete where[k]
     if( Object.keys(where).length > 0 ) query.andWhere(where)
+
+    if (type === '*') return query
+
+    // Type constraint
+    if ( !type.split(':')[1] ) query.andWhere( 'post_type', 'like', '%' + type + '%')
+    else query.andWhere( 'post_type', type )
   
     return query
 }

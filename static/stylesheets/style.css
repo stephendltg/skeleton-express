@@ -1,8 +1,78 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+/*
+ * Style
+*/
+@import 'knacss.css';
+@import 'materialize.min.css';
+
+/*
+ * Import Font materialdesign
+ */
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../fonts/materialicons.woff2) format('woff2');
+  }
+  
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
 }
 
-a {
-  color: #00B7FF;
+
+/* ======================
+ *      My theme
+ * ====================== 
+ */
+
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg stroke='%23CCC' stroke-width='0' %3E%3Crect fill='%23F5F5F5' x='-60' y='-60' width='110' height='240'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+
+/*
+ * Input style
+ */
+
+.input-field label {
+  color: #000;
+}
+.input-field input[type=text]:focus + label {
+  color: #000;
+}
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000;
+}
+.input-field input[type=text].valid {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000;
+}
+.input-field input[type=text].invalid {
+  border-bottom: 1px solid #000;
+  box-shadow: 0 1px 0 0 #000;
+}
+.input-field .prefix.active {
+  color: #000;
 }

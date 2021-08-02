@@ -6,7 +6,7 @@
     return knex.schema.createTable('terms', t => {
         t.increments('id').primary().unsigned()
         t.string('name').notNullable()
-        t.string('slug', 200).notNullable()
+        t.string('slug', 200).unique().notNullable()
         t.string('description', 255).notNullable()
         t.string('type', 20).notNullable().defaultTo('post')
         t.json('term_meta').nullable()

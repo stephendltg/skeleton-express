@@ -98,7 +98,6 @@ window.addFile = function(){
 | offset    | integer                            | default: 0               |
 | orderby   | field (1)                          | default: post_modified   |
 | order     | asc or desc                        | default: desc            |
-| groupby   | field (1)                          | default: post_date       |
 | post_name | where post_name == string          | post_name=test           |
 | post_status | where post_status == string      | post_status=publish      |
 | author    | where author == autho Id           | author=1                 |
@@ -109,7 +108,7 @@ window.addFile = function(){
 ex: /api/json/v1/attachments?search=android&limit=5
 ```
 
-**(1) fields available**: 'title', 'post_status', 'post_mime_type', 'post_date', 'post_modified', 'author', 'excerpt'
+**(1) fields available**: 'id', 'title', 'post_status', 'post_mime_type', 'post_date', 'post_modified', 'author', 'excerpt'
 
 
 ::: tip Status

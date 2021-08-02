@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="<%= settings.get('lang') || 'en' %>">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="manifest" href="/static/manifest.json">
+    <link rel="apple-touch-icon" href="/static/icons/apple-touch-icon-152x152.png">
+    <link rel="mask-icon" href="/static/icons/safari-pinned-tab.svg" color="#ffffff">
+    <meta name="description" content="<%= settings.get('description') %>">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <meta name="msapplication-TileImage" content="/static/icons/msapplication-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="author" content="Stephen Deletang">
+    <title><%= settings.get('title') || 'App'%> | <%= slug %></title>
+    <link rel="stylesheet" href="/static/stylesheets/style.css" />
+    <script type="module" src="/static/javascripts/app.js" defer></script>
+    <style>
+      [x-cloak] {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body class="view-<%= slug %>">
+    <noscript class="card-panel red darken-1">
+      <strong class="white-text">We're sorry but test doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+  

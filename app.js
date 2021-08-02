@@ -5,7 +5,7 @@
  * Description: middleware configuration
  * Sub Module: app.js
  * Author: stephen D.
- * Version: 1.0.2
+ * Version: 1.0.0
  */
 
 /** --------------------------------------------------------------------------------------------- */
@@ -55,11 +55,14 @@ const redux = require('./config/redux')
 /** ROUTES  ===================================================================================== */
 /** --------------------------------------------------------------------------------------------- */
 const indexRouter = require('./routes/index')
+const loginRouter = require('./routes/login')
 const usersRouter = require('./routes/users')
 const authRouter = require('./routes/auth')
 const optionsRouter = require('./routes/options')
 const sessionRouter = require('./routes/session')
 const attachmentsRouter = require('./routes/attachments')
+const termsRouter = require('./routes/terms')
+const postRouter = require('./routes/post')
 
 /** --------------------------------------------------------------------------------------------- */
 /** MAIN    ===================================================================================== */
@@ -158,13 +161,19 @@ app.use(statusMonitor({
   ignoreStartsWith: '/admin'
 }))
 
-
 /**
  * Routes static
  */
 app.use(favicon(path.join(__dirname,'static','images','favicon.ico')))
 app.use('/static', express.static(path.join(__dirname, 'static')))
-app.use('/admin', express.static(path.join(__dirname, 'admin')))
+
+// Auth route frontend
+app.use('/', function(req, res, next) {
+  if( req.path === '/' && !req.session.uuid) {
+    res.redirect('/login')
+  }
+  next(); 
+});
 app.use('/', express.static(path.join(__dirname, 'frontend')))
 
 /**
@@ -179,7 +188,8 @@ if (process.env.NODE_ENV !== 'production')
 /**
  * Routes
  */
-app.use('/install', indexRouter)
+app.use('/admin', indexRouter)
+app.use('/login', loginRouter)
 app.use('/api/json/v1/auth', authRouter)
 app.use('/api/json/v1/session', sessionRouter)
 
@@ -202,10 +212,11 @@ app.use(function (req, res, next) {
 /**
  * Routes protected
  */
-
 app.use('/api/json/v1/users', usersRouter)
 app.use('/api/json/v1/options', optionsRouter)
 app.use('/api/json/v1/attachments', attachmentsRouter)
+app.use('/api/json/v1/terms', termsRouter)
+app.use('/api/json/v1/post', postRouter)
 
 /**
  * Catch 404 and forward to error handler
@@ -224,5 +235,6 @@ app.use(function(err, req, res) {
   res.status(err.status || 500)
   res.render('error')
 });
+
 
 module.exports = app

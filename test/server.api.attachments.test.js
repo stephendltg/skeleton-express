@@ -29,7 +29,7 @@ let Id
 /*
  * Route: Monitor
  */  
-describe('Table options: ', function() {
+describe('Table attachments: ', function() {
 
     it('Connection', function(done) {
         request

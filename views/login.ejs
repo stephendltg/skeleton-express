@@ -1,0 +1,63 @@
+<%- include('partials/header', { slug: "Login"}); -%>
+
+<main x-data >
+
+  <header>
+    <nav>
+      <div class="nav-wrapper orange darken-2">
+        <a href="#" class="brand-logo center text-uppercase"><%= settings.get('title') || 'App'%> </a>
+      </div>
+    </nav>
+  </header>
+
+  <br>
+
+  <section class="flex align-center justify-center">
+
+    <div class="text-center">
+
+      <figure class="py-36 hide-on-small-only">
+        <!-- <img class="responsive-img" src="/static/icons/android-icon-96x96.png"> -->
+      </figure>
+
+      <div class="card grey lighten-5 hoverable">
+        <div class="card-content">
+          <span class="card-title">CONNECTION</span>
+          <form action="/login" method="post">
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="username" type="text" name="username" class="validate">
+                <label for="username" x-i18n>Login</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">lock</i>
+                <input id="password" type="password" name="password" class="validate">
+                <label for="password" x-i18n>Password</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="btn-large col s10 offset-s2 grey darken-4">
+                <input type="submit" value="Log in">
+              </div>
+            </div>
+            <div class="row">
+              <% if (error) { %>
+              <div class="card-panel red darken-2 white-text">
+                <%= error %>
+              </div>
+              <% } %>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+</main>
+
+<%- include('partials/footer'); -%>
+
