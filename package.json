@@ -50,13 +50,6 @@
     "pattern": "^(master|develop){1}$|^(feature|fix|hotfix|release)/.+$",
     "errorMsg": "Branch name format : <type>/<name>/<issue_ID>"
   },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "npm run lint-staged",
-      "pre-push": "validate-branch-name"
-    }
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/stephendltg/skeleton-express.git"
