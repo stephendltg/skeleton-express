@@ -107,3 +107,7 @@ Clean images, container, volumes & network
 
 
 
+"validate-branch-name": {
+    "pattern": "^(master|develop){1}$|^(feature|bugfix|hotfix|chore|experiment)\/([\w-]+?)(\/\d+)?$",
+    "errorMsg": "Branch name format : <type>/<name>/<issue_ID>"
+  },
