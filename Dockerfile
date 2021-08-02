@@ -15,7 +15,7 @@ RUN apk add --no-cache build-base
 # Install app dependencies
 COPY package.json /usr/src/app/
 COPY package-lock.json /usr/src/app/
-RUN npm install --prod --ignore-scripts
+RUN npm install --prod
 # RUN npm rebuild bcrypt --build-from-source
 
 # Bundle app source
