@@ -147,7 +147,7 @@ router.post('/:type', function(req, res) {
         
         // Meta
         try {
-          let meta = new Map(params.meta)
+          let meta = new WeakMap(params.meta)
           params.meta = JSON.stringify(Array.from(meta.entries()))
         } catch (e) {
           delete params.meta
