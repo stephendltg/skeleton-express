@@ -99,7 +99,7 @@ router.get('/', function(req, res) {
 
   // Meta
   try {
-    let meta = new Map(params.term_meta)
+    let meta = new WeakMap(params.term_meta)
     params.term_meta = JSON.stringify(Array.from(meta.entries()))
   } catch (e) {
     delete params.term_meta
@@ -128,7 +128,7 @@ router.get('/', function(req, res) {
 
   // Meta
   try {
-    let meta = new Map(params.term_meta)
+    let meta = new WeakMap(params.term_meta)
     params.term_meta = JSON.stringify(Array.from(meta.entries()))
   } catch (e) {
     delete params.term_meta
