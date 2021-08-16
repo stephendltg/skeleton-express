@@ -4,6 +4,7 @@
  * ref:
  *   supertest: https://github.com/visionmedia/supertest
  *   mocha: https://mochajs.org/
+ *   test: npx mocha test/server.routes-static.test.js 
  */
 
 let request  = require('supertest');
@@ -36,24 +37,6 @@ describe('GET Status: ', function() {
 })
 
 /*
- * Route: install
- */ 
-describe('GET Install: ', function() {
-
-    it('responds with json', function(done) {
-        request
-            .get('/install')
-            .expect('Content-Type', /html/)
-            .expect(200)
-            .then(response => {
-                done();
-                if( VERBOSE ) console.table([response.status, response.type])
-            })
-            .catch(err => done(err))
-     })
-})
-
-/*
  * Route: admin
  */ 
 describe('GET Admin: ', function() {
@@ -61,8 +44,8 @@ describe('GET Admin: ', function() {
     it('responds with json', function(done) {
         request
             .get('/admin')
-            .expect('Content-Type', /html/)
-            .expect(200)
+            // .expect('Content-Type', 'text/plain')
+            .expect(302)
             .then(response => {
                 done();
                 if( VERBOSE ) console.table([response.status, response.type])
@@ -79,8 +62,7 @@ describe('GET Frontend: ', function() {
     it('responds with json', function(done) {
         request
             .get('/')
-            .expect('Content-Type', /html/)
-            .expect(200)
+            .expect(302)
             .then(response => {
                 done();
                 if( VERBOSE ) console.table([response.status, response.type])

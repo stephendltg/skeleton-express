@@ -34,7 +34,7 @@ router.get('/', async function(req, res) {
 
   // Get settings
   let getSettings = await options.autoload()
-  getSettings = new WeakMap( getSettings.map( field => [ field.name, JSON.parse(field.value) ] ) )
+  getSettings = new Map( getSettings.map( field => [ field.name, JSON.parse(field.value) ] ) )
 
   // Render
   res.render('login', { 
@@ -51,7 +51,7 @@ router.post('/', async function(req, res) {
 
   // Get settings
   let getSettings = await options.autoload()
-  getSettings = new WeakMap( getSettings.map( field => [ field.name, JSON.parse(field.value) ] ) )
+  getSettings = new Map( getSettings.map( field => [ field.name, JSON.parse(field.value) ] ) )
 
   // Auth
   users.all({

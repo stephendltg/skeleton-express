@@ -94,7 +94,7 @@ router.get('/:id', function(req, res) {
   
   // Meta
   try {
-    let meta = new WeakMap(user_meta)
+    let meta = new Map(user_meta)
     user_meta = JSON.stringify(Array.from(meta.entries()))
   } catch (e) {
     user_meta = null
@@ -136,7 +136,7 @@ router.get('/:id', function(req, res) {
 
   // Meta
   try {
-    let meta = new WeakMap(params.user_meta)
+    let meta = new Map(params.user_meta)
     params.user_meta = JSON.stringify(Array.from(meta.entries()))
   } catch (e) {
     delete params.user_meta

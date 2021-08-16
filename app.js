@@ -171,6 +171,7 @@ app.use('/static', express.static(path.join(__dirname, 'static')))
 app.use('/', function(req, res, next) {
   if( req.path === '/' && !req.session.uuid) {
     res.redirect('/login')
+    return;
   }
   next(); 
 });
