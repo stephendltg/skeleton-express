@@ -4,12 +4,13 @@
 
 ### ENVIRONNEMENT
 
-docker version: 19.03.8
-docker-compose version: 1.25.0
-cokpit version [https://cockpit-project.org/]: 215
+- docker version: 19.03.8
+- docker-compose version: 1.25.0
+- cokpit version [https://cockpit-project.org/]: 215
 
 
 ### POST INSTALL
+
 ```bash
 #ubuntu
 sudo apt install git
@@ -65,49 +66,42 @@ sudo docker-compose up -d --scale=server=3
 
 DOCKER: https://docs.docker.com/engine/reference/commandline/
 
-# LOG
+### LOG
 > docker logs --tail 1000 -f <container>
 
-# RESTART
+### RESTART
 > docker restart <container>
 
-# BASH
+### BASH
 > docker exec -it <container> bash
 
-# SSHD
+### SSHD
 > docker run -d -p 22 <container> /usr/sbin/sshd -D
 
-# INSPECT
+### INSPECT
 > docker inspect <container>
 > cd /var/lib/docker/volumes
 
-# CONTAINERS LIST
+### CONTAINERS LIST
 > docker ps -a
 
-# VOLUMES LIST
+### VOLUMES LIST
 > docker volume ls
 
-# REMOVE VOLUMES NOT USED
+### REMOVE VOLUMES NOT USED
 > docker volume prune
 
-# LIST IMAGES
+### LIST IMAGES
 > docker images -a
 
 # DELETE IAMGE
 > docker rmi <image>
 > docker images purge
 
-# CLEAN SYSTEME
+### CLEAN SYSTEME
 
 Clean images, container, volumes & network not associated
 > docker system prune 
 
 Clean images, container, volumes & network
 > docker system prune -a
-
-
-
-"validate-branch-name": {
-    "pattern": "^(master|develop){1}$|^(feature|bugfix|hotfix|chore|experiment)\/([\w-]+?)(\/\d+)?$",
-    "errorMsg": "Branch name format : <type>/<name>/<issue_ID>"
-  },
