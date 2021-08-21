@@ -1,26 +1,23 @@
-# ALPINEJS
+### ALPINEJS
 
 ref: (alpinejs)[https://alpinejs.dev/]
 ref: (Alpine toolbox)[https://www.alpinetoolbox.com/]
 
 ---
 
-# MATERIAL DESIGN
+### MATERIAL DESIGN
 
 ref: (material.css)[https://materializecss.com/]
 
 ---
 
-# CSS
+### CSS
 
 ref: (knacss)[https://www.knacss.com/doc.html#intro]
 
 ---
 
-
-# EJS
-
-## TAGS
+### TAGS
 
 - <% Balise 'Scriptlet', pour le flux de contrôle, pas de sortie
 - <%_ Balise Scriptlet 'Whitespace Slurping', supprime tous les espaces blancs avant elle
@@ -33,7 +30,7 @@ ref: (knacss)[https://www.knacss.com/doc.html#intro]
 - _%> Balise de fin 'Whitespace Slurping', supprime tous les espaces après elle
 
 
-## INCLUDES
+### INCLUDES
 
 ```
 <ul>
@@ -43,7 +40,7 @@ ref: (knacss)[https://www.knacss.com/doc.html#intro]
 </ul>
 ```
 
-## LAYOUTS
+### LAYOUTS
 
 ```
 <%- include('header'); -%>
