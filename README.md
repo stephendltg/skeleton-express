@@ -62,9 +62,7 @@ sudo docker-compose up -d --scale=server=3
 
 ## TIPS DOCKER
 
----
-
-DOCKER: https://docs.docker.com/engine/reference/commandline/
+- DOCKER: https://docs.docker.com/engine/reference/commandline/
 
 ### LOG
 > docker logs --tail 1000 -f <container>
@@ -94,7 +92,7 @@ DOCKER: https://docs.docker.com/engine/reference/commandline/
 ### LIST IMAGES
 > docker images -a
 
-# DELETE IAMGE
+### DELETE IAMGE
 > docker rmi <image>
 > docker images purge
 
