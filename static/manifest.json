@@ -1,6 +1,6 @@
 {
-    "name": "Epyo Robot",
-    "short_name": "E-Bot",
+    "name": "App starter",
+    "short_name": "App",
     "icons": [{
             "src": "/static/icons/android-chrome-192x192.png",
             "sizes": "192x192",
