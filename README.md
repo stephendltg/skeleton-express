@@ -1,4 +1,4 @@
-# MODELS APP #
+# SKELETON WEB APP #
 
 ## DOCKER
 
